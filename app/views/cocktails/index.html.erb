@@ -1,7 +1,32 @@
-<h1>MY COCKTAILS</h1>
-<%= link_to "create a new cocktail", new_cocktail_path %>
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path 'background.jpg' %>);">
+  <div class="banner-content">
+    <h1>Best cocktails in town</h1>
+    <p>add yours, change others and drink with precautions</p>
+    <a class="btn btn-primary btn-lg"<%= link_to "create a new cocktail", new_cocktail_path %></a>
+  </div>
+</div>
+<div class="wrapper">
+<div class="container">
+<div><h1>MY COCKTAILS</h1></div>
 
 <% @cocktails.each do |cocktail| %>
-  <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+<%  img = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.png' ]%>
+<% myimg = img.sample %>
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path myimg %>);">
+  <div class="card-category">Popular</div>
+  <div class="card-description">
+    <h2><%= cocktail.name %></h2>
+    <p>Very cool cocktail, very cool!</p>
+  </div>
+ <!--  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
+  <a class="card-link" href="#">  </a>
+
+
+</div>
+<a class="btn btn-primary "<%= link_to "doses and ingredients", cocktail_path(cocktail) %> </a>
+  <!-- <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2> -->
 
 <% end %>
+</div>
+</div>
