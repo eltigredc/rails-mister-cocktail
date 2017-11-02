@@ -1,0 +1,14 @@
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+<% if @dose.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @dose.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.input :ingredient_id, prompt: "Select", collection: Ingredient.all %>
+  <%= f.input :description %>
+  <%= f.submit "add a dose of something", class: "btn btn-primary" %>
+<% end %>
